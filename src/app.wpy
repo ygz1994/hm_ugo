@@ -1,0 +1,77 @@
+<style lang="less">
+
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+import '@/wepyinit.js'
+
+export default class extends wepy.app {
+   config = {
+        pages: [
+            'pages/tabs/home',
+            'pages/tabs/cates',
+            'pages/tabs/search',
+            'pages/tabs/cart',
+            'pages/tabs/my',
+            'pages/goods_list'
+        ],
+        window: {
+            backgroundTextStyle: 'light',
+            navigationBarBackgroundColor: '#d81e06',
+            navigationBarTitleText: '黑马优购',
+            navigationBarTextStyle: 'white'
+        },
+        tabBar: {
+            selectedColor: '#d81e06',
+            list: [
+                {
+                    pagePath: 'pages/tabs/home',
+                    text: '首页',
+                    iconPath: '/assets/tabs/icons/home.png',
+                    selectedIconPath: '/assets/tabs/icons/home-active.png'
+                },{
+                    pagePath: 'pages/tabs/cates',
+                    text: '分类',
+                    iconPath: '/assets/tabs/icons/cates.png',
+                    selectedIconPath: '/assets/tabs/icons/cates-active.png'
+                },{
+                    pagePath: 'pages/tabs/search',
+                    text: '搜索',
+                    iconPath: '/assets/tabs/icons/search.png',
+                    selectedIconPath: '/assets/tabs/icons/search-active.png'
+                },{
+                    pagePath: 'pages/tabs/cart',
+                    text: '购物车',
+                    iconPath: '/assets/tabs/icons/cart.png',
+                    selectedIconPath: '/assets/tabs/icons/cart-active.png'
+                },{
+                    pagePath: 'pages/tabs/my',
+                    text: '我的',
+                    iconPath: '/assets/tabs/icons/my.png',
+                    selectedIconPath: '/assets/tabs/icons/my-active.png'
+                },
+            ]
+        }
+    };
+
+  globalData = {
+    userInfo: null
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+    // 通过下面这一行代码，实现异步api
+    // 开启promise功能，这样，异步api调用的结果，返回值是promise对象
+    this.use('promisify')
+  }
+
+
+
+  onLaunch() {
+    console.log('小程序启动了')
+  }
+}
+</script>

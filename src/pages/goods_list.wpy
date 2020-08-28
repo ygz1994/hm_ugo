@@ -1,0 +1,25 @@
+<template>
+    <view>
+      详情页
+    </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class extends wepy.page {
+  onLoad(option){
+    console.log(option);
+  }
+ config={
+ 
+  }
+  data={
+  
+    }
+  methods= {
+
+  }
+}
+</script>
+<style lang="less">
+
+</style>
